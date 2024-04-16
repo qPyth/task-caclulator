@@ -1,6 +1,9 @@
-package number
+package number_test
 
-import "testing"
+import (
+	"github.com/qPyth/task-caclulator/internal/types/number"
+	"testing"
+)
 
 var tests = []struct {
 	arabic int
@@ -25,7 +28,7 @@ var tests = []struct {
 func TestArabicToRoman(t *testing.T) {
 
 	for _, test := range tests {
-		res := ArabicToRoman(test.arabic)
+		res := number.ArabicToRoman(test.arabic)
 
 		if res != test.roman {
 			t.Errorf("arabicToRoman(%d) = %s; want %s", test.arabic, res, test.roman)
@@ -35,7 +38,7 @@ func TestArabicToRoman(t *testing.T) {
 
 func TestRomanToArabic(t *testing.T) {
 	for _, test := range tests {
-		res := RomanToArabic(test.roman)
+		res := number.RomanToArabic(test.roman)
 
 		if res != test.arabic {
 			t.Errorf("arabicToRoman(%s) = %d; want %d", test.roman, res, test.arabic)
